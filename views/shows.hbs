@@ -1,0 +1,10 @@
+<h1>Shows</h1>
+
+{{#each shows}}
+  <a href="/shows/{{this._id}}">Title: {{ this.title }}</a>
+  <p>Year: {{ this.year }}</p>
+  <p>Description: {{ this.description }}</p>
+  <img width="200px" src="{{this.image}}" alt="{{this.title}}" />
+  <p>Cast: {{ this.cast }}</p>
+  <p>Director: {{ this.director }}</p>
+{{/each}}
