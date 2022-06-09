@@ -25,9 +25,18 @@ const shows = [
      year: 1990,
      description: "The series follows an investigation, headed by FBI Special Agent Dale Cooper (Kyle MacLachlan) and local Sheriff Harry S. Truman (Michael Ontkean), into the murder of homecoming queen Laura Palmer (Sheryl Lee) in the fictional town of Twin Peaks, Washington. The show's narrative draws on elements of detective fiction, but its uncanny tone, supernatural elements, and campy, melodramatic portrayal of eccentric characters also draws from American soap opera and horror tropes.",
      genre: 'Drama',
-     image: 'https://en.wikipedia.org/wiki/File:TwinPeaks_openingshotcredits.jpg',
+     image: 'https://m.media-amazon.com/images/M/MV5BMTExNzk2NjcxNTNeQTJeQWpwZ15BbWU4MDcxOTczOTIx._V1_FMjpg_UX1000_.jpg',
      cast: 'Kyle MacLachlan, Sherilyn Fenn, Mädchen Amick, Lara Flynn Boyle',
      director: 'David Lynch'
+  },
+    {
+     title: 'The Big Bang Theory',
+     year: 2007,
+     description: "The show originally centered on five characters living in Pasadena, California: Leonard Hofstadter (Johnny Galecki) and Sheldon Cooper (Jim Parsons), both physicists at Caltech, who share an apartment; Penny (Kaley Cuoco), a waitress and aspiring actress who lives across the hall; and Leonard and Sheldon's similarly geeky and socially awkward friends and co-workers, aerospace engineer Howard Wolowitz (Simon Helberg) and astrophysicist Raj Koothrappali (Kunal Nayyar).",
+     genre: 'Comedy',
+     image: 'https://m.media-amazon.com/images/M/MV5BY2FmZTY5YTktOWRlYy00NmIyLWE0ZmQtZDg2YjlmMzczZDZiXkEyXkFqcGdeQXVyNjg4NzAyOTA@._V1_FMjpg_UX1000_.jpg',
+     cast: 'Johnny Galecki, Jim Parsons, Kaley Cuoco, Simon Helberg, Kunal Nayyar, Mayim Bialik, Melissa Rauch',
+     director: 'Mark Cendrowski'
   },
 ]
 

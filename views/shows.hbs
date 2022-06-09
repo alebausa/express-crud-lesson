@@ -1,10 +1,13 @@
-<h1>Shows</h1>
+<h1>Welcome to the TV show app</h1>
 
-{{#each shows}}
-  <a href="/shows/{{this._id}}">Title: {{ this.title }}</a>
-  <p>Year: {{ this.year }}</p>
-  <p>Description: {{ this.description }}</p>
-  <img width="200px" src="{{this.image}}" alt="{{this.title}}" />
-  <p>Cast: {{ this.cast }}</p>
-  <p>Director: {{ this.director }}</p>
-{{/each}}
+<div class="card-container">
+  {{#each shows}}
+    <div class="card">
+      <h3><a href="/shows/{{this._id}}">{{ this.title }}</a> ({{ this.year }})</h3>
+      <img width="200px" src="{{this.image}}" alt="{{this.title}}" />
+      <p><strong>Description:</strong> {{ this.description }}</p>
+      <p><strong>Cast:</strong> {{ this.cast }}</p>
+      <p><strong>Director:</strong> {{ this.director }}</p>
+    </div>
+  {{/each}}
+</div>

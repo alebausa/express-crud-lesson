@@ -3,6 +3,10 @@ const router = express.Router();
 const Show = require('../models/Show');
 
 /* GET users listing. */
+router.get('/new-show', (req, res, next) => {
+  res.render('index')
+})
+
 router.post('/new-show', async (req, res, next) => {
   const { showTitle, year, description, genre, image, cast, director } = req.body;
   const yearNumber = parseInt(year);
@@ -29,11 +33,31 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.post('/delete/:showId', async (req, res, next) => {
+  const { showId } = req.params;
+  try {
+    await Show.findByIdAndDelete(showId);
+    res.redirect('/shows');
+  } catch (error) {
+    next(error);
+  }
+})
+
+router.get('/delete/:showId', async (req, res, next) => {
+  const { showId } = req.params;
+  try {
+    await Show.findByIdAndDelete(showId);
+    res.redirect('/shows');
+  } catch (error) {
+    next(error);
+  }
+})
+
 router.get('/:showId', async (req, res, next) => {
   const { showId } = req.params;
   try {
     const show = await Show.findById(showId);
-    res.render('detail', show)
+    res.render('detail', show);
   } catch (error) {
     next(error)
   }

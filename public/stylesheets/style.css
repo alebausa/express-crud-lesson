@@ -1,8 +1,130 @@
 body {
-  padding: 50px;
+  padding: 0;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #434343;
+  position: relative;
 }
 
-a {
-  color: #00B7FF;
+a,
+p {
+  color: #cdcdcd;
+}
+
+h1,
+h2,
+h3,
+h3>a,
+strong {
+  color: #ffd784;
+}
+
+h1 {
+  margin: 0 0 40px 20px;
+}
+
+/* Navbar style */
+
+nav {
+  background-color: #232323;
+  padding: 15px;
+}
+
+nav ul {
+  /* Display items in a line */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+}
+
+nav ul li {
+  /* Remove the list styling */
+  list-style-type: none;
+}
+
+nav ul li a {
+  /* Remove the underlining of anchors */
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+/* HOME & SHOWS Content style */
+
+.container {
+  padding: 30px 30px 70px 30px;
+}
+
+/* Cards */
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 22%;
+  background-color: #2e2e2e;
+  padding: 20px;
+  border-radius: 25px;
+  margin-bottom: 10px;
+}
+
+/* Show detail view */
+
+.detail {
+  padding: 0px 100px 70px 20px;
+}
+
+.detail p {
+  font-size: 18px;
+}
+
+/* NEW SHOW FORM */
+
+form {
+  margin: 20px;
+}
+
+form>label {
+  color: white;
+  font-size: 18px;
+}
+
+input {
+  display: block;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  padding: 10px;
+  width: 100%;
+  margin: 10px 0 30px 0;
+  background-color: #434343;
+  color: white;
+}
+
+input:focus {
+  background-color: #303030;
+  color: white;
+}
+
+button[type="submit"] {
+  background-color: #ac4532;
+  padding: 12px 20px;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 25px;
+  margin: 10px 0;
+}
+
+/* Footer */
+footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  padding: 20px;
+  background-color: #ac4532;
+  width: 100%;
+  color: white;
 }

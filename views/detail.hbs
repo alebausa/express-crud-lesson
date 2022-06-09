@@ -1,7 +1,15 @@
-  <h1>Show detail</h1>  
-  <p>Title: {{ this.title }}</p>
-  <p>Year: {{ this.year }}</p>
-  <p>Description: {{ this.description }}</p>
-  <img width="200px" src="{{this.image}}" alt="{{this.title}}" />
-  <p>Cast: {{ this.cast }}</p>
-  <p>Director: {{ this.director }}</p>
+  <h1>Show detail > {{ this.title }}</h1>  
+
+  <div class="detail">
+    <p><strong>Year:</strong> {{ this.year }}</p>
+    <p><strong>Description:</strong> {{ this.description }}</p>
+    <img width="400px" src="{{this.image}}" alt="{{this.title}}" />
+    <p><strong>Cast:</strong> {{ this.cast }}</p>
+    <p><strong>Director:</strong> {{ this.director }}</p>
+
+    <form method="POST" action="/shows/delete/{{this._id}}">
+      <button type="submit">Delete 🗑</button>
+    </form>
+
+    {{!-- <a href="/shows/delete/{{this._id}}">Delete 🗑</a> --}}
+  </div>
