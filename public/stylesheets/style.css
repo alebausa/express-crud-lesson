@@ -108,7 +108,8 @@ input:focus {
   color: white;
 }
 
-button[type="submit"] {
+button[type="submit"],
+a.edit-btn {
   background-color: #ac4532;
   padding: 12px 20px;
   border: none;
@@ -116,6 +117,11 @@ button[type="submit"] {
   font-size: 18px;
   border-radius: 25px;
   margin: 10px 0;
+}
+
+a.edit-btn {
+  text-decoration: none;
+  margin: 50px 0 0 20px;
 }
 
 /* Footer */

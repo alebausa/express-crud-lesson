@@ -1,0 +1,28 @@
+<h1>Editing: {{ title }}</h1>
+
+<form method="POST" action="/shows/edit/{{ _id }}">
+
+  <label>Title</label>
+  <input type="text" name="title" value="{{ title }}"/>
+
+  <label>Year</label>
+  <input type="number" name="year" value="{{ year }}"/>
+
+  <label>Description</label>
+  <input type="text" name="description" value="{{ description }}"/>
+
+  <label>Genre</label>
+  <input type="text" name="genre" value="{{ genre }}"/>
+
+  <label>Image</label>
+  <input type="text" name="image" value="{{ image }}"/>
+
+  <label>Cast</label>
+  <input type="text" name="cast" value="{{ cast }}"/> 
+
+  <label>Director</label>
+  <input type="text" name="director" value="{{ director }}"/>
+
+  <button type="submit">Save changes ✅</button>
+
+</form>
