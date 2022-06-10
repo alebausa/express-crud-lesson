@@ -7,11 +7,15 @@
     <p><strong>Cast:</strong> {{ this.cast }}</p>
     <p><strong>Director:</strong> {{ this.director }}</p>
 
-    <a class="edit-btn" href="/shows/edit/{{this._id}}">Edit 📝</a>
-
-    <form method="POST" action="/shows/delete/{{this._id}}">
-      <button type="submit">Delete 🗑</button>
-    </form>
+    <div class="action-btns">
+      {{!-- Edit btn --}}
+      <a class="action-btn" href="/shows/edit/{{this._id}}">Edit 📝</a>
+      {{!-- Delete btn --}}
+      <form method="POST" action="/shows/delete/{{this._id}}">
+        <button type="submit">Delete 🗑</button>
+      </form>
+    </div>
+    
 
     {{!-- <a href="/shows/delete/{{this._id}}">Delete 🗑</a> --}}
   </div>

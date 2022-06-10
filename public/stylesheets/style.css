@@ -108,20 +108,32 @@ input:focus {
   color: white;
 }
 
+div.action-btns {
+  display: flex;
+  flex-direction: row;
+  flex-direction: start;
+}
+
 button[type="submit"],
-a.edit-btn {
+a.action-btn {
   background-color: #ac4532;
-  padding: 12px 20px;
   border: none;
   color: white;
   font-size: 18px;
   border-radius: 25px;
-  margin: 10px 0;
 }
 
-a.edit-btn {
+button[type="submit"] {
+  padding: 12px 20px;
+}
+
+a.action-btn {
   text-decoration: none;
-  margin: 50px 0 0 20px;
+  width: 100px;
+  height: 37px;
+  margin-top: 20px;
+  text-align: center;
+  padding-top: 10px;
 }
 
 /* Footer */
