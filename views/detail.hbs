@@ -1,20 +1,70 @@
-  <h1>Show detail > {{ this.title }}</h1>  
+  <h1>Show detail > {{ show.title }}</h1>  
 
   <div class="detail">
-    <p><strong>Year:</strong> {{ this.year }}</p>
-    <p><strong>Description:</strong> {{ this.description }}</p>
-    <img width="400px" src="{{this.image}}" alt="{{this.title}}" />
-    <p><strong>Cast:</strong> {{ this.cast }}</p>
-    <p><strong>Director:</strong> {{ this.director }}</p>
+    <p><strong>Year:</strong> {{ show.year }}</p>
+    <p><strong>Description:</strong> {{ show.description }}</p>
+    <img width="400px" src="{{show.image}}" alt="{{show.title}}" />
+    <p><strong>Cast:</strong> {{ show.cast }}</p>
+    <p><strong>Director:</strong> {{ show.director }}</p>
+
+    {{#if show.seasons}}
+    <p><strong>Seasons:</strong></p>
+    {{#each show.seasons}}
+    <p>Season {{ this.number }}: {{ this.numberOfEpisodes }} episodes. Release date: {{ this.releaseDate }}</p>
+    {{else}}
+    <p>No seasons yet</p>
+    {{/each}}
+    {{/if}}
+
+    {{#if reviews}}
+    <p><strong>Reviews:</strong></p>
+    {{#each reviews}}
+    <p><strong>{{ this.username }} </strong>said: {{ this.comment }} | Rating: {{ this.stars }}/5</p>
+    {{else}}
+    <p>No reviews yet.</p>
+    {{/each}}
+    {{/if}}
 
     <div class="action-btns">
       {{!-- Edit btn --}}
-      <a class="action-btn" href="/shows/edit/{{this._id}}">Edit 📝</a>
+      <a class="action-btn" href="/shows/edit/{{show._id}}">Edit 📝</a>
       {{!-- Delete btn --}}
-      <form method="POST" action="/shows/delete/{{this._id}}">
+      <form method="POST" action="/shows/delete/{{show._id}}">
         <button type="submit">Delete 🗑</button>
       </form>
     </div>
+
+  <div class="add-season-form">
+    <form method="POST" action="/seasons/new/{{show._id}}">
+
+      <label>Add a season number</label>
+      <input type="number" name="number"/> 
+
+      <label>Number of episodes of the season</label>
+      <input type="number" name="numberOfEpisodes"/>
+
+      <label>Season's release date</label>
+      <input type="date" name="releaseDate"/>
+
+      <button type="submit">Save season 🎬</button>
+    </form>
+  </div>
+
+
+    <form method="POST" action="/reviews/new/{{show._id}}">
+
+      <label>With how many stars would you rate this show?</label>
+      <input type="number" name="stars"/> 
+
+      <label>What did you think of this show?</label>
+      <input type="text" name="comment"/>
+
+      <label>Username</label>
+      <input type="text" name="username"/>
+
+      <button type="submit">Save review ⭐️</button>
+    </form>
+
     
 
     {{!-- <a href="/shows/delete/{{this._id}}">Delete 🗑</a> --}}

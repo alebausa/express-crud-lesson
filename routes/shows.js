@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Show = require('../models/Show');
+const Review = require('../models/Review');
 
 /* GET users listing. */
 router.get('/new-show', (req, res, next) => {
@@ -69,8 +70,10 @@ router.post('/delete/:showId', async (req, res, next) => {
 router.get('/:showId', async (req, res, next) => {
   const { showId } = req.params;
   try {
-    const show = await Show.findById(showId);
-    res.render('detail', show);
+    const show = await Show.findById(showId).populate('seasons');
+    const reviews = await Review.find({ show: showId });
+    // console.log('Show:', show);
+    res.render('detail', { show, reviews });
   } catch (error) {
     next(error)
   }

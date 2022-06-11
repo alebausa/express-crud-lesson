@@ -24,6 +24,10 @@ const showSchema = new Schema({
   },
   director: {
     type: String
+  },
+  seasons: {
+    type: [Schema.Types.ObjectId],
+    ref: 'Season'
   }
 })
 
