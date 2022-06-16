@@ -1,14 +1,20 @@
 const express = require('express');
 const router = express.Router();
+const isLoggedIn = require('../middlewares');
 const Show = require('../models/Show');
 const Review = require('../models/Review');
 
-/* GET users listing. */
-router.get('/new-show', (req, res, next) => {
+// @desc    Gets new show form
+// @route   GET /shows/new-show
+// @access  Private
+router.get('/new-show', isLoggedIn, (req, res, next) => {
   res.render('index')
 });
 
-router.post('/new-show', async (req, res, next) => {
+// @desc    Sends new show to DB
+// @route   POST /shows/new-show
+// @access  Private
+router.post('/new-show', isLoggedIn, async (req, res, next) => {
   const { showTitle, year, description, genre, image, cast, director } = req.body;
   const yearNumber = parseInt(year);
   // Promises with then() catch()
@@ -26,15 +32,16 @@ router.post('/new-show', async (req, res, next) => {
 });
 
 router.get('/', async (req, res, next) => {
+  const user = req.session.currentUser;
   try {
     const shows = await Show.find({});
-    res.render('shows', { shows })
+    res.render('shows', { shows, user })
   } catch (error) {
     next(error)
   }
 });
 
-router.get('/edit/:showId', async (req, res, next) => {
+router.get('/edit/:showId', isLoggedIn, async (req, res, next) => {
   const { showId } = req.params;
   try {
     const show = await Show.findById(showId);
@@ -44,7 +51,7 @@ router.get('/edit/:showId', async (req, res, next) => {
   }
 })
 
-router.post('/edit/:showId', async (req, res, next) => {
+router.post('/edit/:showId', isLoggedIn, async (req, res, next) => {
   const { showId } = req.params;
   const { title, year, description, genre, image, cast, director } = req.body;
   const yearNumber = parseInt(year);
@@ -57,7 +64,7 @@ router.post('/edit/:showId', async (req, res, next) => {
   }
 })
 
-router.post('/delete/:showId', async (req, res, next) => {
+router.post('/delete/:showId', isLoggedIn, async (req, res, next) => {
   const { showId } = req.params;
   try {
     await Show.findByIdAndDelete(showId);

@@ -1,4 +1,4 @@
-<h1>Welcome to the TV show app</h1>
+<h1>Welcome to the TV show app {{#if user}}{{user.username}}{{/if}}</h1>
 
 <div class="card-container">
   {{#each shows}}
