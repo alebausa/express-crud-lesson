@@ -25,9 +25,10 @@ router.post('/new-show', async (req, res, next) => {
   }
 });
 
-router.get('/', (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
-    res.redirect('/');
+    const shows = await Show.find({});
+    res.render('shows', { shows })
   } catch (error) {
     next(error)
   }

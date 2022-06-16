@@ -4,13 +4,8 @@ const Show = require('../models/Show');
 
 
 /* GET home page. */
-router.get('/', async function(req, res, next) {
-  try {
-    const shows = await Show.find({});
-    res.render('shows', { shows })
-  } catch (error) {
-    next(error)
-  }
+router.get('/', function (req, res, next) {
+  res.redirect('/shows');
 });
 
 module.exports = router;
